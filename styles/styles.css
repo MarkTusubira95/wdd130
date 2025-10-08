@@ -1,43 +1,64 @@
 :root {
-    /* Defining Variables here */
+
     --primary-color: darkblue;
     --light-color: white;
-    --max-width: 840px;
+    /* Removed --max-width: 840px; from root, defining it directly on selectors */
     --box-shadow-color: gray;
     --aside-bg-color: #eee;
     --aside-text-color: #333;
     --aside-border-color: rgba(0, 0, 0, 0.2);
     --border-color: black;
+    --nav-color: steelblue; /* New variable for nav background */
 }
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 body {
     font-size: 18px;
-    font-family: Roboto,Arial, sans-serif;
-}
-nav {
-    background-color: var(--primary-color);
-    padding: 10px;
+    font-family: Roboto, Arial, sans-serif;
 }
 
+/* 1. Refactor: Max-width and centering for header, .grid, and footer */
+header, .grid, footer {
+    max-width: 840px; /* Set max width */
+    margin: 0 auto; /* Centering the element */
+}
+
+/* 2. CSS Flex for Navigation */
+nav {
+    background-color: var(--nav-color); /* Used steelblue from assignment */
+    padding: 1rem;
+    display: flex; /* Turns on Flexbox */
+    justify-content: space-evenly; /* Evenly spaces the links */
+    align-items: center; /* Center links vertically */
+}
+
+/* 3. Navigation Anchor Tag Styling */
 nav a {
     color: var(--light-color);
-    display: block;
-    padding: 20px;
+    display: block; /* Makes it a block element */
+    padding: 0.5rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+nav a:hover {
+    background-color: darkslategrey;
 }
 
-main {
-    max-width: var(--max-width);
-}
-
+/* 4. Added bottom border to h1 */
 h1 {
     color: var(--primary-color);
     padding: 2rem;
     margin-top: 0;
     margin-bottom: 0;
+    border-bottom: 1px solid var(--border-color); 
+}
+
+main {
+    /* max-width removed here as it is now on .grid */
 }
 
 main img {
@@ -54,10 +75,23 @@ p {
     margin: 0rem;
 }
 
+/* 5. CSS Grid layout for main and aside */
+.grid {
+    display: grid; /* Turn on CSS Grid */
+
+}
+
+main {
+    grid-column: 2/3; 
+    margin: 1rem;
+}
+
 aside {
-    width: 20em;
-    text-align: center;
-    position: relative;
+    width: 20rem;
+    
+    grid-column: 1/2;
+    grid-row: 1/2; 
+    padding: 1rem; 
 }
 
 aside img {
@@ -70,22 +104,22 @@ aside h2{
     top: 10px;
     left: 30px;
     right: 0px;
-
 }
 
 footer {
+    padding: 1rem; /* Added padding */
     margin-top: 1em;
     border-top: 1px solid var(--border-color);
     text-align: center;
 }
-/*class selectors*/
+/* class selectors */
 .box {
-   margin: 1rem;
-   border: 1px solid rgba(0, 0, 0, 0.1);
-   padding: 1rem; 
-   background-color: #eee;
-   color: #000;
-   clear: both;
+    margin: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1rem; 
+    background-color: var(--aside-bg-color); 
+    color: var(--aside-text-color);
+    clear: both;
 }
 .indent{
     padding-left: 2rem;
