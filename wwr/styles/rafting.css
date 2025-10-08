@@ -2,33 +2,38 @@
 
 /* 1. CSS Variables */
 :root {
-    --primary-color: #055a05;      /* Forest Green for headings/accents */
-    --secondary-color: #f4a261;    /* Warm Sand for backgrounds/accents */
-    --accent1-color: #264653;      /* Dark Slate Blue for body text/overlays */
-    --accent2-color: #e9c46a;      /* Light Golden Yellow for highlights */
+    --primary-color: #055a05;       /* Forest Green for headings/accents */
+    --secondary-color: #f4a261;     /* Warm Sand for backgrounds/accents */
+    --accent1-color: #264653;       /* Dark Slate Blue for body text/overlays */
+    --accent2-color: #e9c46a;       /* Light Golden Yellow for highlights */
     --heading-font: 'Georgia', serif;
     --body-font: Arial, Helvetica, sans-serif;
     --max-width: 840px;
 }
 
-/* 2. CSS Reset */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* 3. General Body and Layout Styles */
 body {
     font-family: var(--body-font);
     color: var(--accent1-color);
 }
 
 /* Limiting page width and center content */
-header, main, footer {
+header, footer { 
     max-width: var(--max-width); 
     margin: 0 auto;
 }
+
+main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
 
 /* 4. Headings and Text */
 h1, h2 {
@@ -42,18 +47,21 @@ nav, p, section, article {
     padding: 8px;
 }
 
-/* 5. Header and Navigation */
 header {
     background-color: var(--secondary-color);
     padding: 10px 16px; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    /* Header layout: Logo on left (100px), Nav on right (auto) */
+    display: grid;
+    grid-template-columns: 100px auto; 
+    align-items: center; /* Vertically centers logo and nav */
 }
 
+/* Styling for the nav list */
 header nav ul {
     list-style: none;
-    display: flex;
+    /* Using CSS Flex in the nav to layout links horizontally */
+    display: flex; /* Turns on Flexbox for the list */
+    justify-content: space-around; /* Spacing the links out */
 }
 
 header nav a {
@@ -63,12 +71,19 @@ header nav a {
 }
 
 /* 6. Footer and Social Media */
+/* Style footer to place social icons to the right, matching wireframe */
 footer {
     border-top: 1px solid var(--accent1-color);
     padding: 20px 0;
     text-align: center;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between; /* Content on left, Social on right */
+    align-items: center;
+}
+
+.socialmedia {
+    /* Ensures the social links stay grouped together on the right */
+    display: flex;
     align-items: center;
 }
 
@@ -77,14 +92,14 @@ footer {
     margin: 0 5px;
 }
 
+
 /* ========================================= */
-/* 7. Hero Div and OVERLAY ELEMENTS */
+/* 7. Hero Div and Content Area */
 /* ========================================= */
 
 .hero {
-    
     position: relative; 
-    margin: 0 auto;
+    margin: 0; 
     padding: 0;
 }
 
@@ -95,35 +110,28 @@ footer {
     height: auto;
 }
 
-/* h1 (Thrills on the River) is the first overlay, positioned at the top */
+/* h1 (White Water Rafting) is centered and above the content area */
 .hero h1 {
-    position: absolute; /* Enable overlay */
-    top: 1px; /* Positions it near the top edge */
+    position: static; 
     width: 100%;
-    padding: 16px;
+    padding: 16px 0;
     text-align: center;
-    
-    /* Styling for contrast */
-    opacity: 0.8; 
-    background-color: var(--accent1-color); 
-    color: #fff; 
+    color: var(--accent1-color); 
+    background-color: transparent;
+    opacity: 1;
+    z-index: auto;
 }
 
-/* article (Mission Box) is the second overlay, positioned in the middle/lower half */
+/* article is the main content area below the title */
 .hero article {
-    position: absolute;
-    
-    /* Positioning: Puts it below the h1, centered horizontally */
-    top: 10%; 
-    left: 5%;   
-    right: 5%;  
-    width: 90%; 
-    
-    /* Styling: Semi-transparent white for minimal distraction/good contrast */
-    background-color: rgba(255, 255, 255, 0.8); 
+    position: relative;
+    width: 100%; 
     padding: 20px;
-    border-radius: 5px;
-    z-index: 5;
+    border-radius: 0;
+    z-index: auto;
+    background-color: transparent; 
+    transform: none;
+    clear: both;
 }
 
 /* Smaller image floats to the right inside the mission box */
@@ -136,7 +144,74 @@ footer {
 }
 
 /* 8. History and Adventure Sections */
-.history, .adventures {
-    /* Ensures these sections start below the hero div, not underneath the absolute elements */
+
+/* History section: Layout using Grid for 3 columns (Text | Image | Text) */
+.history {
     clear: both;
+    display: grid;
+    /* Defines 3 columns: 1 fractional unit for text, 200px for image, 1fr for text */
+    grid-template-columns: 1fr 200px 1fr; 
+    align-items: start; /* Align content to the top */
+    grid-gap: 20px; /* Space between columns */
+    padding: 16px;
+}
+
+/* Place the h2 above the grid columns */
+.history h2 {
+    grid-column: 1 / -1; /* Spans all columns */
+    text-align: center;
+}
+
+.history p {
+    padding: 0;
+    margin: 0;
+}
+
+.history-img {
+    width: 100%;
+    height: auto;
+    background-color: #264653; 
+    padding: 20px;
+}
+
+
+/* Adventures Section: Using Flex to stack the heading and the images */
+.adventures {
+    clear: both;
+    margin: 16px;
+    padding: 8px;
+    display: flex; 
+    flex-direction: column; /* Stack the h2 and the image row */
+    align-items: center; /* Center the heading and the row of images */
+    text-align: center; 
+}
+
+/* New flex container to hold the five images in a single row */
+.adventures-row {
+    display: flex;
+    justify-content: space-around; /* Space the images out evenly */
+    align-items: flex-start; 
+    flex-wrap: nowrap; /* Tries to force them onto one line */
+    width: 100%;
+    padding-top: 20px;
+}
+
+.adventures figure {
+    /* Setting items to 19% width to ensure all five fit on one line with spacing */
+    flex: 0 0 19%; 
+    margin: 0 5px; 
+    padding: 5px;
+}
+
+.adventures img {
+    width: 100%; 
+    height: auto;
+    border-radius: 5px;
+    background-color: #ccc; 
+}
+
+.adventures figcaption {
+    margin-top: 5px;
+    font-style: italic;
+    color: var(--accent1-color);
 }
