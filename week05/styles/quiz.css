@@ -1,0 +1,75 @@
+/* Basic Reset/Styling for the page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 20px;
+}
+
+/* Style the main heading */
+h1 {
+    text-align: center;
+    color: #0056b3;
+    margin-bottom: 30px;
+}
+
+/* Style for the form container */
+form {
+    max-width: 600px; /* Limits the form width */
+    margin: 0 auto; /* Centers the form on the page */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for each question section for uniform layout (single column) */
+section {
+    margin-bottom: 25px; /* Spacing between questions */
+    display: flex; /* Enables flexbox for a clean layout */
+    flex-direction: column; /* Stacks label and input vertically */
+}
+
+/* Style all labels */
+label {
+    font-weight: bold;
+    margin-bottom: 8px; /* Space between label and input */
+    font-size: 1.1em;
+}
+
+/* Style all input, textarea, and select elements for uniform width and look */
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+    width: 100%; /* Makes them take up the full width of the form container */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't increase total width */
+    font-size: 1em;
+}
+
+/* Specific styling for the textarea */
+textarea {
+    resize: vertical; 
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    display: block; /
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the button */
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
