@@ -24,68 +24,75 @@
         </nav>
     </header>
 
-    <main class="contact-grid">
+    <main>
+
         <section class="company-info">
-            <h2>Get In Touch</h2>
+            <h2>White Water Rafting</h2>
             <p><strong>Address:</strong> Plot 2 Nalufenya Road, Jinja</p>
-            <p><strong>Phone (Bookings):</strong> +256780433195</p>
-            <p><strong>Phone (Safety Line):</strong> +256772370226</p>
-            <p><strong>Email:</strong> <a href="mailto:info@wwr.com">info@wwr.com</a></p>
+            <p><strong>Phone (Bookings):</strong> +256780433195 | <strong>Email:</strong> <a
+                    href="mailto:info@wwr.com">info@wwr.com</a></p>
         </section>
 
-        <section class="map-container">
-            <h2>Find Our Outpost</h2>
-            <iframe src="https://maps.google.com/maps?q=plot+2+Nalufenya+road+jinja&output=embed" width="100%"
-                height="300px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </section>
+        <div class="map-form-grid">
 
-        <section class="contact-form-section">
-            <h2>Send Us a Message</h2>
-            <form action="submit-form.html" method="post">
-                <label for="user-name">Full Name:</label>
-                <input type="text" id="user-name" name="user-name" required>
+            <section class="map-container">
+                <h2>Find Our Outpost</h2>
+                <iframe src="https://maps.google.com/maps?q=plot+2+Nalufenya+road+jinja&output=embed" width="100%"
+                    height="300px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </section>
 
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required>
+            <section class="contact-form-section">
+                <h2>Send Us a Message</h2>
+                <form action="submit-form.html" method="post">
+                    <label for="user-name">Full Name:</label>
+                    <input type="text" id="user-name" name="user-name" required>
 
-                <fieldset class="purpose-group">
-                    <legend>Purpose of Message:</legend>
-                    <label><input type="radio" name="purpose" value="general" required> General Inquiry</label>
-                    <label><input type="radio" name="purpose" value="reservation"> Reservation Question</label>
-                    <label><input type="radio" name="purpose" value="suggestion"> Website Suggestion</label>
-                </fieldset>
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
 
-                <label for="message">Your Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
+                    <fieldset class="purpose-group">
+                        <legend>Purpose of Message:</legend>
+                        <label><input type="radio" name="purpose" value="general" required> General Inquiry</label>
+                        <label><input type="radio" name="purpose" value="reservation"> Reservation Question</label>
+                        <label><input type="radio" name="purpose" value="suggestion"> Website Suggestion</label>
+                    </fieldset>
 
-                <div class="checkbox-group">
-                    <input type="checkbox" id="newsletter" name="newsletter" value="yes">
-                    <label for="newsletter">Please subscribe me to the monthly newsletter</label>
-                </div>
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
 
-                <button type="submit">Send My Inquiry</button>
-            </form>
-        </section>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+                        <label for="newsletter">Please subscribe me to the monthly newsletter</label>
+                    </div>
 
-        <section class="employee-grid">
+                    <button type="submit">Send My Inquiry</button>
+                </form>
+            </section>
+        </div>
+
+        <section class="employee-section">
             <h2>Meet Our Expert Team</h2>
-            <figure>
-                <img src="images/employee1.jpg" alt="Photo of CEO Tronella">
-                <figcaption>Tronella - CEO</figcaption>
-            </figure>
-            <figure>
-                <img src="images/employee2.jpg" alt="Photo of Safety Coordinator Elijah">
-                <figcaption>Elijah - Safety Coordinator</figcaption>
-            </figure>
-            <figure>
-                <img src="images/employee3.jpg" alt="Photo of Trip Planner Mark">
-                <figcaption>Mark - Trip Planner</figcaption>
-            </figure>
+            <div class="employee-profiles-row">
+                <figure>
+                    <img src="images/employee1.jpg" alt="Photo of CEO Tronella">
+                    <figcaption>Tronella - CEO</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/employee2.jpg" alt="Photo of Safety Coordinator Elijah">
+                    <figcaption>Elijah - Safety Coordinator</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/employee3.jpg" alt="Photo of Trip Planner Mark">
+                    <figcaption>Mark - Trip Planner</figcaption>
+                </figure>
+            </div>
         </section>
+
     </main>
 
     <footer>
-        <p>&copy; 2025 White Water Rafting - Tusubira Mark</p>
+        <p>© 2025 White Water Rafting - Tusubira Mark</p>
         <nav class="socialmedia">
             <a href="https://facebook.com" target="_blank">
                 <img src="images/facebook.svg" alt="Facebook Icon" width="30">

@@ -217,70 +217,40 @@ footer {
 }
 
 /* ========================================= */
-/* 9. Contact Us Page Styles */
+/* 9. Contact Us Page */
 /* ========================================= */
 
-/* Grid container for the main content of the Contact page (Rubric #3 Layout) */
-.contact-grid {
-    /* Set up a grid layout for the main elements */
+/* 1. Centered Company Info */
+.company-info {
+    text-align: center; /* Centers the text */
+    padding: 30px 15px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent2-color);
+}
+
+/* 2. Side-by-Side Map and Form Container */
+.map-form-grid {
+    /* Main container for the two parallel sections */
     display: grid;
-    /* Defines two columns: one for map/info/form, one for employees */
-    grid-template-columns: 2fr 1fr; 
-    gap: 30px; /* Space between grid items */
-    padding: 20px;
+    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+    gap: 30px; 
+    padding: 0 20px 40px;
+    max-width: var(--max-width); /* Inherit main max-width */
+    margin: 0 auto;
 }
 
-/* Company Info, Map, and Form will occupy the first column */
-.company-info, .map-container, .contact-form-section {
-    grid-column: 1 / 2;
-    padding: 15px; /* Add padding for visual separation */
-}
-
-/* Map specific styling */
 .map-container iframe {
     width: 100%;
     height: 300px;
-    /* Use a border color from your variables */
     border: 3px solid var(--primary-color);
     border-radius: 5px;
 }
 
-/* Employee Grid (Occupies the second column) */
-.employee-grid {
-    grid-column: 2 / 3;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-    padding: 20px;
-    /* Use a secondary color for the background to set it apart */
-    background-color: var(--secondary-color); 
-    border-radius: 8px;
+/* Form Styling */
+.contact-form-section {
+    padding: 0 15px;
 }
 
-.employee-grid h2 {
-    color: var(--accent1-color);
-}
-
-.employee-grid figure {
-    margin: 0;
-    padding: 10px;
-    background-color: white;
-    border-radius: 5px;
-}
-
-.employee-grid img {
-    width: 100%;
-    max-width: 150px; /* Control image size */
-    height: 150px;
-    display: block;
-    margin: 0 auto 10px;
-    border-radius: 50%; /* Make images circular */
-    object-fit: cover; /* Ensures images fill the space without distortion */
-    border: 3px solid var(--accent2-color);
-}
-
-/* Form Styling (Rubric #8 Appearance) */
 .contact-form-section form {
     display: flex;
     flex-direction: column;
@@ -288,14 +258,15 @@ footer {
     padding: 20px;
     border: 1px solid var(--accent2-color);
     border-radius: 5px;
+    height: 100%; /* Ensures the form box matches the map height */
 }
 
+/* Form Input Details */
 .contact-form-section label {
     font-weight: bold;
     margin-top: 5px;
 }
 
-/* Style for text inputs, email, textarea */
 .contact-form-section input[type="text"],
 .contact-form-section input[type="email"],
 .contact-form-section textarea {
@@ -305,7 +276,6 @@ footer {
     width: 100%;
 }
 
-/* Grouping for radio buttons */
 .purpose-group {
     border: none;
     padding: 0;
@@ -321,7 +291,7 @@ footer {
 }
 
 .purpose-group label {
-    font-weight: normal; /* Override the bold style for radio labels */
+    font-weight: normal; 
     display: flex;
     align-items: center;
     gap: 5px;
@@ -353,20 +323,53 @@ footer {
     background-color: var(--accent1-color);
 }
 
+/* 3. Horizontal Employee Profiles (Full Width) */
+.employee-section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.employee-profiles-row {
+    display: flex; /* Key for horizontal layout */
+    justify-content: space-around; 
+    gap: 15px;
+    margin-top: 20px;
+    background-color: var(--secondary-color); 
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.employee-profiles-row figure {
+    flex: 1 1 30%; 
+    margin: 0;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.employee-profiles-row img {
+    width: 100%;
+    max-width: 150px; 
+    height: 150px;
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 3px solid var(--accent2-color);
+}
+
+
 /* Media Query for smaller screens (layout adjustment) */
 @media (max-width: 768px) {
-    .contact-grid {
-        grid-template-columns: 1fr; /* Stack all items in a single column */
-    }
-
-    .company-info, .map-container, .contact-form-section, .employee-grid {
-        grid-column: 1 / -1; /* All items span the full width */
+    /* Map and Form stack vertically */
+    .map-form-grid {
+        grid-template-columns: 1fr;
+        padding: 0 15px 30px;
     }
     
-    .employee-grid figure {
-        /* On small screens, allow the employee images to be side-by-side */
-        display: inline-block;
-        width: 30%;
-        margin: 5px 1%;
+    .employee-profiles-row {
+        flex-direction: column;
     }
 }
