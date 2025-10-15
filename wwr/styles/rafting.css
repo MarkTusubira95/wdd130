@@ -215,3 +215,158 @@ footer {
     font-style: italic;
     color: var(--accent1-color);
 }
+
+/* ========================================= */
+/* 9. Contact Us Page Styles */
+/* ========================================= */
+
+/* Grid container for the main content of the Contact page (Rubric #3 Layout) */
+.contact-grid {
+    /* Set up a grid layout for the main elements */
+    display: grid;
+    /* Defines two columns: one for map/info/form, one for employees */
+    grid-template-columns: 2fr 1fr; 
+    gap: 30px; /* Space between grid items */
+    padding: 20px;
+}
+
+/* Company Info, Map, and Form will occupy the first column */
+.company-info, .map-container, .contact-form-section {
+    grid-column: 1 / 2;
+    padding: 15px; /* Add padding for visual separation */
+}
+
+/* Map specific styling */
+.map-container iframe {
+    width: 100%;
+    height: 300px;
+    /* Use a border color from your variables */
+    border: 3px solid var(--primary-color);
+    border-radius: 5px;
+}
+
+/* Employee Grid (Occupies the second column) */
+.employee-grid {
+    grid-column: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 20px;
+    /* Use a secondary color for the background to set it apart */
+    background-color: var(--secondary-color); 
+    border-radius: 8px;
+}
+
+.employee-grid h2 {
+    color: var(--accent1-color);
+}
+
+.employee-grid figure {
+    margin: 0;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.employee-grid img {
+    width: 100%;
+    max-width: 150px; /* Control image size */
+    height: 150px;
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 50%; /* Make images circular */
+    object-fit: cover; /* Ensures images fill the space without distortion */
+    border: 3px solid var(--accent2-color);
+}
+
+/* Form Styling (Rubric #8 Appearance) */
+.contact-form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    border: 1px solid var(--accent2-color);
+    border-radius: 5px;
+}
+
+.contact-form-section label {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Style for text inputs, email, textarea */
+.contact-form-section input[type="text"],
+.contact-form-section input[type="email"],
+.contact-form-section textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+}
+
+/* Grouping for radio buttons */
+.purpose-group {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.purpose-group legend {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.purpose-group label {
+    font-weight: normal; /* Override the bold style for radio labels */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+}
+
+.contact-form-section button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 20px;
+}
+
+.contact-form-section button:hover {
+    background-color: var(--accent1-color);
+}
+
+/* Media Query for smaller screens (layout adjustment) */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr; /* Stack all items in a single column */
+    }
+
+    .company-info, .map-container, .contact-form-section, .employee-grid {
+        grid-column: 1 / -1; /* All items span the full width */
+    }
+    
+    .employee-grid figure {
+        /* On small screens, allow the employee images to be side-by-side */
+        display: inline-block;
+        width: 30%;
+        margin: 5px 1%;
+    }
+}

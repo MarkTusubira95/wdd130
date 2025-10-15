@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Water Rafting Co. - Contact Us</title>
+    <meta name="description"
+        content="Get in touch with White Water Rafting Co. for bookings, questions, and support. Find our location and meet our team.">
+    <meta name="author" content="Tusubira Mark">
+    <link rel="stylesheet" href="styles/rafting.css">
+</head>
+
+<body>
+    <header>
+        <img src="images/logo.png" alt="Company logo" width="100">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="trips.html">Trips</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contact-grid">
+        <section class="company-info">
+            <h2>Get In Touch</h2>
+            <p><strong>Address:</strong> Plot 2 Nalufenya Road, Jinja</p>
+            <p><strong>Phone (Bookings):</strong> +256780433195</p>
+            <p><strong>Phone (Safety Line):</strong> +256772370226</p>
+            <p><strong>Email:</strong> <a href="mailto:info@wwr.com">info@wwr.com</a></p>
+        </section>
+
+        <section class="map-container">
+            <h2>Find Our Outpost</h2>
+            <iframe src="https://maps.google.com/maps?q=plot+2+Nalufenya+road+jinja&output=embed" width="100%"
+                height="300px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+
+        <section class="contact-form-section">
+            <h2>Send Us a Message</h2>
+            <form action="submit-form.html" method="post">
+                <label for="user-name">Full Name:</label>
+                <input type="text" id="user-name" name="user-name" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+
+                <fieldset class="purpose-group">
+                    <legend>Purpose of Message:</legend>
+                    <label><input type="radio" name="purpose" value="general" required> General Inquiry</label>
+                    <label><input type="radio" name="purpose" value="reservation"> Reservation Question</label>
+                    <label><input type="radio" name="purpose" value="suggestion"> Website Suggestion</label>
+                </fieldset>
+
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+                    <label for="newsletter">Please subscribe me to the monthly newsletter</label>
+                </div>
+
+                <button type="submit">Send My Inquiry</button>
+            </form>
+        </section>
+
+        <section class="employee-grid">
+            <h2>Meet Our Expert Team</h2>
+            <figure>
+                <img src="images/employee1.jpg" alt="Photo of CEO Tronella">
+                <figcaption>Tronella - CEO</figcaption>
+            </figure>
+            <figure>
+                <img src="images/employee2.jpg" alt="Photo of Safety Coordinator Elijah">
+                <figcaption>Elijah - Safety Coordinator</figcaption>
+            </figure>
+            <figure>
+                <img src="images/employee3.jpg" alt="Photo of Trip Planner Mark">
+                <figcaption>Mark - Trip Planner</figcaption>
+            </figure>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 White Water Rafting - Tusubira Mark</p>
+        <nav class="socialmedia">
+            <a href="https://facebook.com" target="_blank">
+                <img src="images/facebook.svg" alt="Facebook Icon" width="30">
+            </a>
+            <a href="https://twitter.com" target="_blank">
+                <img src="images/twitter.png" alt="Twitter Icon" width="30">
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <img src="images/instagram.svg" alt="Instagram Icon" width="30">
+            </a>
+        </nav>
+    </footer>
+</body>
+
+</html>
