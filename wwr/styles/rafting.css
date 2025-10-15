@@ -53,7 +53,7 @@ header {
     /* Header layout: Logo on left (100px), Nav on right (auto) */
     display: grid;
     grid-template-columns: 100px auto; 
-    align-items: center; /* Vertically centers logo and nav */
+    align-items: center;
 }
 
 /* Styling for the nav list */
@@ -61,7 +61,7 @@ header nav ul {
     list-style: none;
     /* Using CSS Flex in the nav to layout links horizontally */
     display: flex; /* Turns on Flexbox for the list */
-    justify-content: space-around; /* Spacing the links out */
+    justify-content: space-around; 
 }
 
 header nav a {
@@ -258,7 +258,7 @@ footer {
     padding: 20px;
     border: 1px solid var(--accent2-color);
     border-radius: 5px;
-    height: 100%; /* Ensures the form box matches the map height */
+    height: 100%;
 }
 
 /* Form Input Details */
