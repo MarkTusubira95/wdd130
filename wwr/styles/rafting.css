@@ -1,6 +1,6 @@
-/* Documenting rafting.css */
+/* DocumentING rafting.css */
 
-/* 1. CSS Variables */rf
+/* 1. CSS Variables */
 :root {
     --primary-color: #055a05;       /* Forest Green for headings/accents */
     --secondary-color: #f4a261;     /* Warm Sand for backgrounds/accents */
@@ -10,7 +10,6 @@
     --body-font: Arial, Helvetica, sans-serif;
     --max-width: 840px;
 }
-
 
 * {
     margin: 0;
@@ -24,16 +23,10 @@ body {
 }
 
 /* Limiting page width and center content */
-header, footer { 
+header, footer, main { 
     max-width: var(--max-width); 
     margin: 0 auto;
 }
-
-main {
-    max-width: var(--max-width);
-    margin: 0 auto;
-}
-
 
 /* 4. Headings and Text */
 h1, h2 {
@@ -47,20 +40,18 @@ nav, p, section, article {
     padding: 8px;
 }
 
+/* 5. Header and Navigation */
 header {
     background-color: var(--secondary-color);
     padding: 10px 16px; 
-    /* Header layout: Logo on left (100px), Nav on right (auto) */
     display: grid;
     grid-template-columns: 100px auto; 
     align-items: center;
 }
 
-/* Styling for the nav list */
 header nav ul {
     list-style: none;
-    /* Using CSS Flex in the nav to layout links horizontally */
-    display: flex; /* Turns on Flexbox for the list */
+    display: flex; 
     justify-content: space-around; 
 }
 
@@ -71,18 +62,16 @@ header nav a {
 }
 
 /* 6. Footer and Social Media */
-/* Style footer to place social icons to the right, matching wireframe */
 footer {
     border-top: 1px solid var(--accent1-color);
     padding: 20px 0;
     text-align: center;
     display: flex;
-    justify-content: space-between; /* Content on left, Social on right */
+    justify-content: space-between;
     align-items: center;
 }
 
 .socialmedia {
-    /* Ensures the social links stay grouped together on the right */
     display: flex;
     align-items: center;
 }
@@ -98,8 +87,10 @@ footer {
 
 .hero {
     position: relative; 
-    margin: 0; 
+    margin: 0 auto; 
     padding: 0;
+    /* Limit width specifically for the 'hero' class if not meant to be full screen */
+    max-width: var(--max-width); 
 }
 
 /* Large image is the background and fills the container */
@@ -109,9 +100,10 @@ footer {
     height: auto;
 }
 
-/* h1 (White Water Rafting) is centered and above the content area */
-.hero h1 {
-    /* Removed redundant static positioning when used on the About page */
+/* Specific styling for the About Us H1 to prevent absolute positioning */
+/* This selects the h1 only when it is NOT the .hero-title class used on index.html */
+.hero h1:not(.hero-title) {
+    position: static; 
     width: 100%;
     padding: 16px 0;
     text-align: center;
@@ -121,7 +113,7 @@ footer {
     z-index: auto;
 }
 
-/* article is the main content area below the title */
+/* article is the main content area below the title (About Us Page) */
 .hero article {
     position: relative;
     width: 100%; 
@@ -133,7 +125,7 @@ footer {
     clear: both;
 }
 
-/* Smaller image floats to the right inside the mission box */
+/* Smaller image floats to the right inside the mission box (About Us Page) */
 .hero article img {
     float: right; 
     width: 125px;
@@ -143,21 +135,17 @@ footer {
 }
 
 /* 8. History and Adventure Sections (About Us Page) */
-
-/* History section: Layout using Grid for 3 columns (Text | Image | Text) */
 .history {
     clear: both;
     display: grid;
-    /* Defines 3 columns: 1 fractional unit for text, 200px for image, 1fr for text */
     grid-template-columns: 1fr 200px 1fr; 
-    align-items: start; /* Align content to the top */
-    gap: 20px; /* Space between columns */
+    align-items: start;
+    gap: 20px;
     padding: 16px;
 }
 
-/* Place the h2 above the grid columns */
 .history h2 {
-    grid-column: 1 / -1; /* Spans all columns */
+    grid-column: 1 / -1;
     text-align: center;
 }
 
@@ -173,30 +161,27 @@ footer {
     padding: 20px;
 }
 
-
-/* Adventures Section: Using Flex to stack the heading and the images */
+/* Adventures Section */
 .adventures {
     clear: both;
     margin: 16px;
     padding: 8px;
     display: flex; 
-    flex-direction: column; /* Stack the h2 and the image row */
-    align-items: center; /* Center the heading and the row of images */
+    flex-direction: column; 
+    align-items: center; 
     text-align: center; 
 }
 
-/* New flex container to hold the five images in a single row */
 .adventures-row {
     display: flex;
-    justify-content: space-around; /* Space the images out evenly */
+    justify-content: space-around; 
     align-items: flex-start; 
-    flex-wrap: nowrap; /* Tries to force them onto one line */
+    flex-wrap: nowrap; 
     width: 100%;
     padding-top: 20px;
 }
 
 .adventures figure {
-    /* Setting items to 19% width to ensure all five fit on one line with spacing */
     flex: 0 0 19%; 
     margin: 0 5px; 
     padding: 5px;
@@ -218,8 +203,6 @@ footer {
 /* ========================================= */
 /* 9. Contact Us Page Styles */
 /* ========================================= */
-
-/* 1. Centered Company Info */
 .company-info {
     text-align: center;
     padding: 30px 15px;
@@ -227,7 +210,6 @@ footer {
     border-bottom: 2px solid var(--accent2-color);
 }
 
-/* 2. Side-by-Side Map and Form Container */
 .map-form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr; 
@@ -238,7 +220,6 @@ footer {
     align-items: stretch; 
 }
 
-/* Ensure headings have zero top margin to prevent unpredictable spacing */
 .map-container h2, 
 .contact-form-section h2 {
     text-align: center;
@@ -247,7 +228,6 @@ footer {
     padding: 0 15px; 
 }
 
-/* Map specific styling */
 .map-container {
     padding: 0; 
     display: flex;
@@ -262,7 +242,6 @@ footer {
     flex-grow: 1; 
 }
 
-/* Form Styling - Ensure form fills container and distributes content */
 .contact-form-section {
     padding: 0;
     display: flex;
@@ -280,7 +259,6 @@ footer {
     border-radius: 5px;
 }
 
-/* Form Input Details (Existing Styles) */
 .contact-form-section label {
     font-weight: bold;
     margin-top: 5px;
@@ -341,7 +319,6 @@ footer {
     background-color: var(--accent1-color);
 }
 
-/* 3. Horizontal Employee Profiles (Full Width) */
 .employee-section {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -383,7 +360,7 @@ footer {
 /* ========================================= */
 
 .hero-title {
-    /* Overrides the original hero h1 styling */
+    /* Styles for the Home Page H1 (Absolute positioning) */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -398,26 +375,13 @@ footer {
     text-align: center;
 }
 
-/* Main hero container for the image and text overlay */
-.hero {
-    position: relative;
-    margin: 0 auto;
-    max-width: var(--max-width);
-}
-
 .hero img {
-    /* Hero image styling */
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    display: block;
+    /* Constrain height for the Home Page hero to look like a banner */
     max-height: 400px;
 }
 
-/* Home Grid Layout (Required for the Home Page) */
 .home-grid {
     display: grid;
-    /* Defines a flexible 3-column layout */
     grid-template-columns: repeat(3, 1fr); 
     gap: 20px;
     padding: 40px 20px;
@@ -426,7 +390,6 @@ footer {
 }
 
 .card-cta-1, .card-cta-2 {
-    /* Trip Cards span 1 column each */
     text-align: center;
     background-color: var(--secondary-color);
     padding: 15px;
@@ -442,7 +405,6 @@ footer {
     margin-bottom: 10px;
 }
 
-/* Newsletter section spans two columns (Call to Action) */
 .newsletter-signup {
     grid-column: 1 / span 2;
     background-color: var(--accent2-color);
@@ -473,7 +435,6 @@ footer {
     cursor: pointer;
 }
 
-/* Mission Teaser section (Content) */
 .mission-teaser {
     grid-column: 3 / 4;
     background-color: var(--accent1-color);
@@ -554,11 +515,8 @@ footer {
     color: var(--primary-color);
 }
 
-
-/* Trips Grid for Cards */
 .trips-grid {
     display: grid;
-    /* Responsive layout with a minimum width for cards */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     padding: 20px;
@@ -590,7 +548,6 @@ footer {
     display: inline-block;
 }
 
-/* Pricing Table Styling (Required Content) */
 .pricing-section {
     padding: 40px 20px;
     text-align: center;
