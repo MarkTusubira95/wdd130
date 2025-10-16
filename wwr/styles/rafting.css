@@ -2,83 +2,94 @@
 
 /* 1. CSS Variables */
 :root {
-    --primary-color: #055a05;       /* Forest Green for headings/accents */
-    --secondary-color: #f4a261;     /* Warm Sand for backgrounds/accents */
-    --accent1-color: #264653;       /* Dark Slate Blue for body text/overlays */
-    --accent2-color: #e9c46a;       /* Light Golden Yellow for highlights */
-    --heading-font: 'Georgia', serif;
-    --body-font: Arial, Helvetica, sans-serif;
-    --max-width: 840px;
+    --primary-color: #055a05;       /* Forest Green for headings/accents */
+    --secondary-color: #f4a261;     /* Warm Sand for backgrounds/accents */
+    --accent1-color: #264653;       /* Dark Slate Blue for body text/overlays */
+    --accent2-color: #e9c46a;       /* Light Golden Yellow for highlights */
+    --heading-font: 'Georgia', serif;
+    --body-font: Arial, Helvetica, sans-serif;
+    --max-width: 840px;
 }
 
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: var(--body-font);
-    color: var(--accent1-color);
+    font-family: var(--body-font);
+    color: var(--accent1-color);
 }
 
 /* Limiting page width and center content */
-header, footer, main { 
-    max-width: var(--max-width); 
-    margin: 0 auto;
+header, footer { 
+    max-width: var(--max-width); 
+    margin: 0 auto;
 }
+
+main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
 
 /* 4. Headings and Text */
 h1, h2 {
-    font-family: var(--heading-font);
-    color: var(--primary-color);
+    font-family: var(--heading-font);
+    color: var(--primary-color);
 }
 
 /* Consistent margin/padding for main elements */
 nav, p, section, article {
-    margin: 16px;
-    padding: 8px;
+    margin: 16px;
+    padding: 8px;
 }
 
-/* 5. Header and Navigation */
 header {
-    background-color: var(--secondary-color);
-    padding: 10px 16px; 
-    display: grid;
-    grid-template-columns: 100px auto; 
-    align-items: center;
+    background-color: var(--secondary-color);
+    padding: 10px 16px; 
+    /* Header layout: Logo on left (100px), Nav on right (auto) */
+    display: grid;
+    grid-template-columns: 100px auto; 
+    align-items: center;
 }
 
+/* Styling for the nav list */
 header nav ul {
-    list-style: none;
-    display: flex; 
-    justify-content: space-around; 
+    list-style: none;
+    /* Using CSS Flex in the nav to layout links horizontally */
+    display: flex; /* Turns on Flexbox for the list */
+    justify-content: space-around; 
 }
 
 header nav a {
-    text-decoration: none;
-    color: var(--primary-color);
-    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: 10px 15px;
 }
 
 /* 6. Footer and Social Media */
+/* Style footer to place social icons to the right, matching wireframe */
 footer {
-    border-top: 1px solid var(--accent1-color);
-    padding: 20px 0;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border-top: 1px solid var(--accent1-color);
+    padding: 20px 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-between; /* Content on left, Social on right */
+    align-items: center;
 }
 
 .socialmedia {
-    display: flex;
-    align-items: center;
+    /* Ensures the social links stay grouped together on the right */
+    display: flex;
+    align-items: center;
 }
 
 .socialmedia a {
-    text-decoration: none; 
-    margin: 0 5px;
+    text-decoration: none; 
+    margin: 0 5px;
 }
 
 /* ========================================= */
@@ -86,273 +97,285 @@ footer {
 /* ========================================= */
 
 .hero {
-    position: relative; 
-    margin: 0 auto; 
-    padding: 0;
-    /* Limit width specifically for the 'hero' class if not meant to be full screen */
-    max-width: var(--max-width); 
+    position: relative; 
+    margin: 0; 
+    padding: 0;
 }
 
 /* Large image is the background and fills the container */
 .hero img {
-    display: block;
-    width: 100%;
-    height: auto;
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
-/* Specific styling for the About Us H1 to prevent absolute positioning */
-/* This selects the h1 only when it is NOT the .hero-title class used on index.html */
-.hero h1:not(.hero-title) {
-    position: static; 
-    width: 100%;
-    padding: 16px 0;
-    text-align: center;
-    color: var(--accent1-color); 
-    background-color: transparent;
-    opacity: 1;
-    z-index: auto;
+/* h1 (White Water Rafting) is centered and above the content area */
+.hero h1 {
+    position: static; 
+    width: 100%;
+    padding: 16px 0;
+    text-align: center;
+    color: var(--accent1-color); 
+    background-color: transparent;
+    opacity: 1;
+    z-index: auto;
 }
 
-/* article is the main content area below the title (About Us Page) */
+/* article is the main content area below the title */
 .hero article {
-    position: relative;
-    width: 100%; 
-    padding: 20px;
-    border-radius: 0;
-    z-index: auto;
-    background-color: transparent; 
-    transform: none;
-    clear: both;
+    position: relative;
+    width: 100%; 
+    padding: 20px;
+    border-radius: 0;
+    z-index: auto;
+    background-color: transparent; 
+    transform: none;
+    clear: both;
 }
 
-/* Smaller image floats to the right inside the mission box (About Us Page) */
+/* Smaller image floats to the right inside the mission box */
 .hero article img {
-    float: right; 
-    width: 125px;
-    margin-left: 15px; 
-    border: 1px solid var(--primary-color);
-    box-shadow: 0 0 10px var(--accent1-color);
+    float: right; 
+    width: 125px;
+    margin-left: 15px; 
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 10px var(--accent1-color);
 }
 
 /* 8. History and Adventure Sections (About Us Page) */
+
+/* History section: Layout using Grid for 3 columns (Text | Image | Text) */
 .history {
-    clear: both;
-    display: grid;
-    grid-template-columns: 1fr 200px 1fr; 
-    align-items: start;
-    gap: 20px;
-    padding: 16px;
+    clear: both;
+    display: grid;
+    /* Defines 3 columns: 1 fractional unit for text, 200px for image, 1fr for text */
+    grid-template-columns: 1fr 200px 1fr; 
+    align-items: start; /* Align content to the top */
+    grid-gap: 20px; /* Space between columns */
+    padding: 16px;
 }
 
+/* Place the h2 above the grid columns */
 .history h2 {
-    grid-column: 1 / -1;
-    text-align: center;
+    grid-column: 1 / -1; /* Spans all columns */
+    text-align: center;
 }
 
 .history p {
-    padding: 0;
-    margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .history-img {
-    width: 100%;
-    height: auto;
-    background-color: #264653; 
-    padding: 20px;
+    width: 100%;
+    height: auto;
+    background-color: #264653; 
+    padding: 20px;
 }
 
-/* Adventures Section */
+
+/* Adventures Section: Using Flex to stack the heading and the images */
 .adventures {
-    clear: both;
-    margin: 16px;
-    padding: 8px;
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
+    clear: both;
+    margin: 16px;
+    padding: 8px;
+    display: flex; 
+    flex-direction: column; /* Stack the h2 and the image row */
+    align-items: center; /* Center the heading and the row of images */
+    text-align: center; 
 }
 
+/* New flex container to hold the five images in a single row */
 .adventures-row {
-    display: flex;
-    justify-content: space-around; 
-    align-items: flex-start; 
-    flex-wrap: nowrap; 
-    width: 100%;
-    padding-top: 20px;
+    display: flex;
+    justify-content: space-around; /* Space the images out evenly */
+    align-items: flex-start; 
+    flex-wrap: nowrap; /* Tries to force them onto one line */
+    width: 100%;
+    padding-top: 20px;
 }
 
 .adventures figure {
-    flex: 0 0 19%; 
-    margin: 0 5px; 
-    padding: 5px;
+    /* Setting items to 19% width to ensure all five fit on one line with spacing */
+    flex: 0 0 19%; 
+    margin: 0 5px; 
+    padding: 5px;
 }
 
 .adventures img {
-    width: 100%; 
-    height: auto;
-    border-radius: 5px;
-    background-color: #ccc; 
+    width: 100%; 
+    height: auto;
+    border-radius: 5px;
+    background-color: #ccc; 
 }
 
 .adventures figcaption {
-    margin-top: 5px;
-    font-style: italic;
-    color: var(--accent1-color);
+    margin-top: 5px;
+    font-style: italic;
+    color: var(--accent1-color);
 }
 
 /* ========================================= */
-/* 9. Contact Us Page Styles */
+/* 9. Contact Us Page Styles (Final Height Alignment) */
 /* ========================================= */
+
+/* 1. Centered Company Info */
 .company-info {
-    text-align: center;
-    padding: 30px 15px;
-    margin-bottom: 20px;
-    border-bottom: 2px solid var(--accent2-color);
+    text-align: center;
+    padding: 30px 15px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent2-color);
 }
 
+/* 2. Side-by-Side Map and Form Container */
 .map-form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 30px; 
-    padding: 0 20px 40px;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    align-items: stretch; 
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px; 
+    padding: 0 20px 40px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    align-items: stretch; 
 }
 
+/* Ensure headings have zero top margin to prevent unpredictable spacing */
 .map-container h2, 
 .contact-form-section h2 {
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 10px;
-    padding: 0 15px; 
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 0 15px; 
 }
 
+/* Map specific styling */
 .map-container {
-    padding: 0; 
-    display: flex;
-    flex-direction: column;
+    padding: 0; 
+    display: flex;
+    flex-direction: column;
 }
 
 .map-container iframe {
-    width: 100%;
-    height: 350px; 
-    border: 3px solid var(--primary-color);
-    border-radius: 5px;
-    flex-grow: 1; 
+    width: 100%;
+    height: 350px; 
+    border: 3px solid var(--primary-color);
+    border-radius: 5px;
+    flex-grow: 1; 
 }
 
+/* Form Styling - Ensure form fills container and distributes content */
 .contact-form-section {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .contact-form-section form {
-    flex-grow: 1; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    gap: 5px; 
-    padding: 15px; 
-    border: 1px solid var(--accent2-color);
-    border-radius: 5px;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    gap: 5px; 
+    padding: 15px; 
+    border: 1px solid var(--accent2-color);
+    border-radius: 5px;
 }
 
+/* Form Input Details (Existing Styles) */
 .contact-form-section label {
-    font-weight: bold;
-    margin-top: 5px;
+    font-weight: bold;
+    margin-top: 5px;
 }
 
 .contact-form-section input[type="text"],
 .contact-form-section input[type="email"],
 .contact-form-section textarea {
-    padding: 5px; 
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    width: 100%;
+    padding: 5px; 
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
 }
 
 .purpose-group {
-    border: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
 .purpose-group legend {
-    font-weight: bold;
-    margin-bottom: 5px;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .purpose-group label {
-    font-weight: normal; 
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    font-weight: normal; 
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .checkbox-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 .checkbox-group input[type="checkbox"] {
-    width: auto;
+    width: auto;
 }
 
 .contact-form-section button {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
 }
 
 .contact-form-section button:hover {
-    background-color: var(--accent1-color);
+    background-color: var(--accent1-color);
 }
 
+/* 3. Horizontal Employee Profiles (Full Width) */
 .employee-section {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px 0;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px 0;
 }
 
 .employee-profiles-row {
-    display: flex; 
-    justify-content: space-around; 
-    gap: 15px;
-    margin-top: 20px;
-    background-color: var(--secondary-color); 
-    padding: 20px;
-    border-radius: 8px;
+    display: flex; 
+    justify-content: space-around; 
+    gap: 15px;
+    margin-top: 20px;
+    background-color: var(--secondary-color); 
+    padding: 20px;
+    border-radius: 8px;
 }
 
 .employee-profiles-row figure {
-    flex: 1 1 30%; 
-    margin: 0;
-    padding: 10px;
-    background-color: white;
-    border-radius: 5px;
+    flex: 1 1 30%; 
+    margin: 0;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
 }
 
 .employee-profiles-row img {
-    width: 100%;
-    max-width: 150px; 
-    height: 150px;
-    display: block;
-    margin: 0 auto 10px;
-    border-radius: 50%; 
-    object-fit: cover; 
-    border: 3px solid var(--accent2-color);
+    width: 100%;
+    max-width: 150px; 
+    height: 150px;
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 3px solid var(--accent2-color);
 }
 
 /* ========================================= */
@@ -360,13 +383,13 @@ footer {
 /* ========================================= */
 
 .hero-title {
-    /* Styles for the Home Page H1 (Absolute positioning) */
+    /* Overrides the original hero h1 styling */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white; 
-    background-color: rgba(0, 0, 0, 0.6); 
+    color: white; /* White text for visibility on the image */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
     padding: 15px 30px;
     border-radius: 8px;
     font-size: 2.5em;
@@ -375,13 +398,26 @@ footer {
     text-align: center;
 }
 
+/* Main hero container for the image and text overlay */
+.hero {
+    position: relative;
+    margin: 0 auto;
+    max-width: var(--max-width);
+}
+
 .hero img {
-    /* Constrain height for the Home Page hero to look like a banner */
+    /* Hero image styling */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
     max-height: 400px;
 }
 
+/* Home Grid Layout (Required for the Home Page) */
 .home-grid {
     display: grid;
+    /* Defines a flexible 3-column layout */
     grid-template-columns: repeat(3, 1fr); 
     gap: 20px;
     padding: 40px 20px;
@@ -390,6 +426,7 @@ footer {
 }
 
 .card-cta-1, .card-cta-2 {
+    /* Trip Cards span 1 column each */
     text-align: center;
     background-color: var(--secondary-color);
     padding: 15px;
@@ -405,6 +442,7 @@ footer {
     margin-bottom: 10px;
 }
 
+/* Newsletter section spans two columns (Call to Action) */
 .newsletter-signup {
     grid-column: 1 / span 2;
     background-color: var(--accent2-color);
@@ -435,6 +473,7 @@ footer {
     cursor: pointer;
 }
 
+/* Mission Teaser section (Content) */
 .mission-teaser {
     grid-column: 3 / 4;
     background-color: var(--accent1-color);
@@ -515,8 +554,11 @@ footer {
     color: var(--primary-color);
 }
 
+
+/* Trips Grid for Cards */
 .trips-grid {
     display: grid;
+    /* Responsive layout with a minimum width for cards */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     padding: 20px;
@@ -548,6 +590,7 @@ footer {
     display: inline-block;
 }
 
+/* Pricing Table Styling (Required Content) */
 .pricing-section {
     padding: 40px 20px;
     text-align: center;
