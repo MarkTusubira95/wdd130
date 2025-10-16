@@ -217,51 +217,75 @@ footer {
 }
 
 /* ========================================= */
-/* 9. Contact Us Page */
+/* 9. Contact Us Page Styles (Final Height Alignment) */
 /* ========================================= */
 
 /* 1. Centered Company Info */
 .company-info {
-    text-align: center; /* Centers the text */
+    text-align: center;
     padding: 30px 15px;
     margin-bottom: 20px;
     border-bottom: 2px solid var(--accent2-color);
 }
 
-/* 2. Side-by-Side Map and Form Container */
+/* 2. Side-by-Side Map and Form Container - KEY CHANGES HERE */
 .map-form-grid {
-    /* Main container for the two parallel sections */
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+    grid-template-columns: 1fr 1fr; 
     gap: 30px; 
     padding: 0 20px 40px;
-    max-width: var(--max-width); /* Inherit main max-width */
+    max-width: var(--max-width);
     margin: 0 auto;
+    /* Use 'align-items: stretch' to make grid items take up equal height */
+    align-items: stretch; 
+}
+
+/* Ensure headings have zero top margin to prevent unpredictable spacing */
+.map-container h2, 
+.contact-form-section h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 0 15px; /* Use same padding as main container */
+}
+
+/* Map specific styling */
+.map-container {
+    padding: 0; /* Remove padding from this outer container */
+    display: flex;
+    flex-direction: column;
 }
 
 .map-container iframe {
     width: 100%;
-    height: 300px;
+    /* Set the height that you want for the visible map area */
+    height: 350px; 
     border: 3px solid var(--primary-color);
     border-radius: 5px;
+    /* Flex-grow ensures the iframe takes available space within its container */
+    flex-grow: 1; 
 }
 
-/* Form Styling */
+/* Form Styling - Ensure form fills container and distributes content */
 .contact-form-section {
-    padding: 0 15px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .contact-form-section form {
+    /* Form fills the entire height available from the grid stretch */
+    flex-grow: 1; 
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    padding: 20px;
+    justify-content: space-between; /* Pushes button to the bottom */
+    gap: 5px; 
+    padding: 15px; 
     border: 1px solid var(--accent2-color);
     border-radius: 5px;
-    height: 100%;
 }
 
-/* Form Input Details */
+/* Form Input Details (Existing Styles) */
 .contact-form-section label {
     font-weight: bold;
     margin-top: 5px;
@@ -270,7 +294,7 @@ footer {
 .contact-form-section input[type="text"],
 .contact-form-section input[type="email"],
 .contact-form-section textarea {
-    padding: 10px;
+    padding: 5px; 
     border: 1px solid #ccc;
     border-radius: 3px;
     width: 100%;
@@ -282,7 +306,7 @@ footer {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 2px;
 }
 
 .purpose-group legend {
@@ -316,7 +340,6 @@ footer {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.1em;
-    margin-top: 20px;
 }
 
 .contact-form-section button:hover {
@@ -332,7 +355,7 @@ footer {
 }
 
 .employee-profiles-row {
-    display: flex; /* Key for horizontal layout */
+    display: flex; 
     justify-content: space-around; 
     gap: 15px;
     margin-top: 20px;
@@ -361,7 +384,7 @@ footer {
 }
 
 
-/* Media Query for smaller screens (layout adjustment) */
+/* Media Query for smaller screens */
 @media (max-width: 768px) {
     /* Map and Form stack vertically */
     .map-form-grid {
@@ -370,6 +393,6 @@ footer {
     }
     
     .employee-profiles-row {
-        flex-direction: column;
+        flex-direction: column; 
     }
 }
